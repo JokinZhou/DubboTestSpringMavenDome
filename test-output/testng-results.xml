@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1817" started-at="2018-04-03T08:25:19Z" finished-at="2018-04-03T08:25:21Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1817" started-at="2018-04-03T08:25:19Z" finished-at="2018-04-03T08:25:21Z">
+      <class name="com.jokin.testng.AccountServiceTestNGTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.jokin.testng.AccountServiceTestNGTest@15d0c81b]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="8" started-at="2018-04-03T16:25:19Z" finished-at="2018-04-03T16:25:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.jokin.testng.AccountServiceTestNGTest@15d0c81b]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="471" started-at="2018-04-03T16:25:19Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2018-04-03T16:25:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.jokin.testng.AccountServiceTestNGTest@15d0c81b]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1123" started-at="2018-04-03T16:25:19Z" finished-at="2018-04-03T16:25:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.jokin.testng.AccountServiceTestNGTest.testGetAcccountById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="FAIL" signature="testGetAcccountById()[pri:0, instance:com.jokin.testng.AccountServiceTestNGTest@15d0c81b]" name="testGetAcccountById" duration-ms="127" started-at="2018-04-03T16:25:20Z" finished-at="2018-04-03T16:25:21Z">
+          <exception class="org.springframework.jdbc.BadSqlGrammarException">
+            <message>
+              <![CDATA[PreparedStatementCallback; bad SQL grammar [select id,name,age,sex from tbl_account where id=?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'jz_business.tbl_account' doesn't exist]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [select id,name,age,sex from tbl_account where id=?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'jz_business.tbl_account' doesn't exist
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:237)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:605)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:639)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:664)
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.query(NamedParameterJdbcTemplate.java:147)
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.query(NamedParameterJdbcTemplate.java:153)
+	at AccountService.AccountDao.getAccountById(AccountDao.java:36)
+	at AccountService.AccountService.insertIfNotExist(AccountService.java:26)
+	at com.jokin.testng.AccountServiceTestNGTest.testGetAcccountById(AccountServiceTestNGTest.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:189)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:155)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:201)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:642)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1137)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:753)
+	at org.testng.TestRunner.run(TestRunner.java:607)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:368)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:363)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:321)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:270)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1284)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1209)
+	at org.testng.TestNG.runSuites(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1096)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'jz_business.tbl_account' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.Util.getInstance(Util.java:387)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:939)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2478)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2625)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2551)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1962)
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:646)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:589)
+	... 35 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.springframework.jdbc.BadSqlGrammarException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAcccountById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.jokin.testng.AccountServiceTestNGTest@15d0c81b]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="62" started-at="2018-04-03T16:25:21Z" finished-at="2018-04-03T16:25:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.jokin.testng.AccountServiceTestNGTest.testGetAcccountById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.jokin.testng.AccountServiceTestNGTest@15d0c81b]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2018-04-03T16:25:21Z" finished-at="2018-04-03T16:25:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.jokin.testng.AccountServiceTestNGTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
