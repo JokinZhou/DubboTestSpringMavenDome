@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- 用来载入properites文件 -->
@@ -36,11 +37,37 @@
     
     
 
-    <!-- 定向要字段加载的类，通常用来加载被测的类 -->
+    <!-- Spring会定向要字段加载的类，通常用来加载被测的类 -->
    <bean id="accountDao"  class="AccountService.AccountDao"> 
         <property name="dataSource" ref="dataSource" /> 
     </bean> 
    <bean id="accountService" class="AccountService.AccountService"> 
     </bean> 
+    
+    
+     
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="test-dubbo-service"/>
+    <dubbo:monitor protocol="registry"/>
+    
+    <!--  使用zookeeper注册中心暴露服务地址 -->
+    <!-- 开发环境
+            <dubbo:registry protocol="zookeeper" address="10.11.25.220:2181;10.11.25.244:2181;10.11.25.247:2181" />
+      -->        
+       <!-- 测试环境
+            <dubbo:registry protocol="zookeeper" address="172.16.3.132:2181;172.16.3.133:2181;172.16.3.134:2181" />
+      -->
+       <dubbo:registry protocol="zookeeper" address="172.16.3.132:2181;172.16.3.133:2181;172.16.3.134:2181" />
+ 
+    <!--测试需要调用的dubbo的服务-->
+    <dubbo:reference interface="com.redstar.sms.api.MailService"
+            timeout="5000" retries="0"  owner="mweb"  id="mailService" />            
+                          
+    <dubbo:reference interface="com.redstar.sms.api.AppPushService"
+            timeout="5000" retries="0"  owner="mweb"  id="appPushService" />      
+            
+	 <dubbo:reference interface="com.chinaredstar.nvwa.api.EmployeeService" 
+	 timeout="5000" retries="3" owner="test" id="employeeService" />	
+
 
 </beans>

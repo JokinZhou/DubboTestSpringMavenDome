@@ -23,9 +23,11 @@ import AccountService.AccountService;
 //给该方法添加事物管理功能
 @Transactional
 @ActiveProfiles("test") 
+//新建的测试类继承AbstractTransactionalTestNGSpringContextTests是使用Spring的测试的关键
 public class AccountServiceTestNGTest extends AbstractTransactionalTestNGSpringContextTests {
 
     @Autowired 
+    //@Autowired自动装配方式，从IoC容器中去查找到，并返回给该属性, 这样就不用用户主动去new对象了
     private AccountService service; 
     
     @org.testng.annotations.Test 
