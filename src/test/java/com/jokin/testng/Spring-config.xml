@@ -37,10 +37,10 @@
     
 
     <!-- 定向要字段加载的类，通常用来加载被测的类 -->
-<bean id="accountDao"  class="AccountService.AccountDao"> 
+   <bean id="accountDao"  class="AccountService.AccountDao"> 
         <property name="dataSource" ref="dataSource" /> 
     </bean> 
-<bean id="accountService" class="AccountService.AccountService"> 
+   <bean id="accountService" class="AccountService.AccountService"> 
     </bean> 
 
 </beans>
